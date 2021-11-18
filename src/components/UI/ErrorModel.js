@@ -6,7 +6,7 @@ import styles from './ErrorModel.module.css';
 function ErrorModel(props){
 	return (
 		<div>
-			<div className={styles.backdrop}/>
+			<div className={styles.backdrop} onClick={props.onClick}/>
 	<Card className={styles.modal}>
 		<header className={styles.header}>
 			<h2 >{props.errorTitle}</h2>
