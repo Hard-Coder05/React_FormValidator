@@ -4,7 +4,10 @@ import Button from './Button';
 import styles from './ErrorModel.module.css';
 
 function ErrorModel(props){
-	return <Card className={styles.modal}>
+	return (
+		<div>
+			<div className={styles.backdrop}/>
+	<Card className={styles.modal}>
 		<header className={styles.header}>
 			<h2 >{props.errorTitle}</h2>
 		</header>
@@ -12,8 +15,9 @@ function ErrorModel(props){
 			<p>{props.errorMessage}</p>
 		</div>
 		<footer className={styles.actions}>
-			<Button>Okay</Button>
+			<Button onClick={props.onClick}>Okay</Button>
 		</footer>
 	</Card>
-}
+	</div>
+	)}
 export default ErrorModel;

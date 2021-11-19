@@ -19,7 +19,7 @@ function AddUser(props){
 	const addUserHandler = (event) => {
 		event.preventDefault();
 		if(enteredUserName.trim().length===0||enteredAge.trim().length===0){
-			return;
+		return <ErrorModel errorTitle="An error occured" errorMessage="Something went wrong" onClick={setEnteredUserName('')}/>;
 		}
 		if(+enteredAge<0){
 		return;
@@ -31,7 +31,6 @@ function AddUser(props){
 
 	return (
 		<div>
-			<ErrorModel errorTitle="An error occured" errorMessage="Something went wrong"/>
 		<Card className={styles.input}>
 			<form onSubmit={addUserHandler}>
 				<label htmlFor='username'>Username</label>
