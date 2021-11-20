@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import Button from '../UI/Button';
 import Card from '../UI/Card';
+import ErrorModel from '../UI/ErrorModel';
 import styles from './AddUser.module.css';
 
 function AddUser(props){
@@ -23,11 +24,14 @@ function AddUser(props){
 		if(+enteredAge<0){
 		return;
 		}
+		props.onAddUser(enteredUserName.trim(),enteredAge.trim());
 		setEnteredAge('');
 		setEnteredUserName('');
 	};
 
 	return (
+		<div>
+			<ErrorModel errorTitle="An error occured" errorMessage="Something went wrong"/>
 		<Card className={styles.input}>
 			<form onSubmit={addUserHandler}>
 				<label htmlFor='username'>Username</label>
@@ -37,6 +41,7 @@ function AddUser(props){
 				<Button type='submit'>Add User</Button>
 			</form>
 		</Card>
+		</div>
 	);
 }
 
